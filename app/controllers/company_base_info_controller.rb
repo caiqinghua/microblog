@@ -4,4 +4,8 @@ class CompanyBaseInfoController < ApplicationController
 
   def help
   end
+
+  def about
+  end
+
 end
