@@ -1,0 +1,2 @@
+module CompanyBaseInfoHelper
+end

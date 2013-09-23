@@ -1,4 +1,6 @@
 Weibo::Application.routes.draw do
+  get "company_base_info/home"
+  get "company_base_info/help"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
