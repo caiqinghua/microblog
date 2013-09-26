@@ -1,4 +1,8 @@
 class CompanyBaseInfoController < ApplicationController
+  def index
+  	home()
+  end
+
   def home
   end
 
@@ -6,6 +10,9 @@ class CompanyBaseInfoController < ApplicationController
   end
 
   def about
+  end
+
+  def contact
   end
 
 end
