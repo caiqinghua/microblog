@@ -1,4 +1,13 @@
 Weibo::Application.routes.draw do
+  get "users/new"
+  root 'company_base_info#home'
+  match '/signup',  to: 'users#new',       via: 'get'
+  match '/', to: 'company_base_info#home', via: 'get'
+  match '/home', to: 'company_base_info#home', via: 'get'
+  match '/help', to: 'company_base_info#help', via: 'get'
+  match '/about', to: 'company_base_info#about', via: 'get'
+  match '/contact', to: 'company_base_info#contact', via: 'get'
+  match '/signin', to: 'company_base_info#home', via: 'get'
   get "company_base_info/home"
   get "company_base_info/help"
   get "company_base_info/about"

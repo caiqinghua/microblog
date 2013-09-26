@@ -3,14 +3,19 @@ require 'spec_helper'
 describe "CompanyBaseInfos" do
 
   describe "Home page" do
+    before {visit home_path}
 
-    it "should have the content 'Xiaoshoutai Microblog Home'" do
-      visit '/company_base_info/home'
-      expect(page).to have_content('Xiaoshoutai Microblog Home')
+    subject {page}
+
+    it {should have_content('Xiaoshoutai Microblog')}
+    it {should have_title('Xiaoshoutai Microblog')}
+    it {should_not have_title('| Home')}
+
+    it "should have the content 'Xiaoshoutai Microblog'" do
+      expect(page).to have_content('Xiaoshoutai Microblog')
     end
 
     it "should have the right title" do
-	  visit '/company_base_info/home'
 	  expect(page).to have_title("Xiaoshoutai Microblog")
     expect(page).not_to have_title("| Home")
 	end
@@ -19,12 +24,12 @@ describe "CompanyBaseInfos" do
 
   describe "Help page" do
     it "should have the content 'Xiaoshoutai Microblog Help'" do
-      visit '/company_base_info/help'
+      visit help_path
       expect(page).to have_content('Xiaoshoutai Microblog Help')
     end
 
     it "should have the right title" do
-	  visit '/company_base_info/help'
+	  visit help_path
 	  expect(page).to have_title("Xiaoshoutai Microblog | Help")
 	end
 
@@ -32,12 +37,12 @@ describe "CompanyBaseInfos" do
 
   describe "About page" do
     it "should have the content 'Xiaoshoutai Microblog About Us'" do
-      visit '/company_base_info/about'
+      visit about_path
       expect(page).to have_content('Xiaoshoutai Microblog About Us')
     end
 
     it "should have the right title" do
-	  visit '/company_base_info/about'
+	  visit about_path
 	  expect(page).to have_title("Xiaoshoutai Microblog | About Us")
 	end
 
@@ -45,12 +50,12 @@ describe "CompanyBaseInfos" do
 
   describe "Contact page" do
     it "should have the content 'Contact'" do
-      visit '/company_base_info/contact'
+      visit contact_path
       expect(page).to have_content('Contact')
     end
 
     it "should have the right title" do
-	  visit '/company_base_info/contact'
+	  visit contact_path
 	  expect(page).to have_title("Xiaoshoutai Microblog | Contact")
 	end
 
