@@ -1,5 +1,5 @@
 Weibo::Application.routes.draw do
-  get "users/new"
+  resources :users
   root 'company_base_info#home'
   match '/signup',  to: 'users#new',       via: 'get'
   match '/', to: 'company_base_info#home', via: 'get'
