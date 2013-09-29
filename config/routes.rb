@@ -1,5 +1,6 @@
 Weibo::Application.routes.draw do
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
   root 'company_base_info#home'
   match '/signup',  to: 'users#new',       via: 'get'
   match '/', to: 'company_base_info#home', via: 'get'
@@ -7,7 +8,8 @@ Weibo::Application.routes.draw do
   match '/help', to: 'company_base_info#help', via: 'get'
   match '/about', to: 'company_base_info#about', via: 'get'
   match '/contact', to: 'company_base_info#contact', via: 'get'
-  match '/signin', to: 'company_base_info#home', via: 'get'
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
   get "company_base_info/home"
   get "company_base_info/help"
   get "company_base_info/about"
