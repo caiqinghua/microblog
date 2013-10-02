@@ -56,6 +56,19 @@ describe "Signins" do
     describe "for non-signed-in users" do
       let(:user) { FactoryGirl.create(:user) }
 
+      describe "in the Microposts controller" do
+
+        describe "submitting to the create action" do
+          before { post microposts_path }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+
+        describe "submitting to the destroy action" do
+          before { delete micropost_path(FactoryGirl.create(:micropost)) }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+      end
+
       describe "when attempting to visit a protected page" do
         before do
           visit edit_user_path(user)
@@ -88,7 +101,7 @@ describe "Signins" do
         describe "signed-in user can't visit the new or signup page" do
           before { visit signup_path }
           it { should have_title('Xiaoshoutai Microblog') }
-          it { should have_content('home page')}
+          #it { should have_content('home page')}
         end
 
         #describe "signed-in user can't access user create action" do
