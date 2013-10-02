@@ -7,6 +7,12 @@ namespace :db do
                          password_confirmation: "admin123",
                          admin: true)
 
+    second_admin = User.create!(name: "Second Admin",
+                         email: "second_admin@caiqinghua.com",
+                         password: "admin123",
+                         password_confirmation: "admin123",
+                         admin: true)
+
     User.create!(name: "Example User",
                  email: "example@caiqinghua.com",
                  password: "admin123",
