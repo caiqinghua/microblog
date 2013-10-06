@@ -1,9 +1,14 @@
 Weibo::Application.routes.draw do
   get "microposts/create"
   get "microposts/destroy"
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
   root 'company_base_info#home'
   match '/signup',  to: 'users#new',       via: 'get'
   match '/', to: 'company_base_info#home', via: 'get'
